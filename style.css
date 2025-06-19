@@ -1,33 +1,207 @@
+/* style.css */
+
+/* --- Общие стили и сброс --- */
 body {
-  font-family: sans-serif;
-  background: #121212;
-  color: white;
-  padding: 2rem;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Заголовок --- */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* --- Фильтр категорий --- */
+#category-filter {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* --- Секция новостей (сетка) --- */
+.news-grid {
+    display: grid;
+    /* По умолчанию 1 колонка на мобильных, на больших экранах будет 2 или 3 */
+    grid-template-columns: 1fr;
+    gap: 25px; /* Расстояние между карточками новостей */
+    padding: 20px 0;
+}
+
+/* Адаптивность для сетки новостей */
+@media (min-width: 600px) {
+    .news-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 колонки на средних экранах */
+    }
+}
+
+@media (min-width: 900px) {
+    .news-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 колонки на больших экранах */
+    }
+}
+
+
+/* --- Карточка новости --- */
 .news-card {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  background: #1e1e1e;
-  padding: 1rem;
-  border-radius: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden; /* Обрезаем содержимое, если выходит за рамки */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column; /* Элементы внутри карточки располагаются по колонке */
 }
+
+.news-card:hover {
+    transform: translateY(-5px); /* Легкий эффект при наведении */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
 .news-card img {
-  width: 150px;
-  height: 100px;
-  object-fit: cover;
+    width: 100%;
+    height: 200px; /* Фиксированная высота для изображений */
+    object-fit: cover; /* Изображения будут обрезаны, но сохранят пропорции */
+    display: block;
 }
-#pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
+
+.news-card h3 {
+    font-size: 1.5em;
+    margin: 15px 15px 10px 15px;
+    color: #333;
 }
-button {
-  background: #d50000;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+
+.news-card p {
+    font-size: 0.95em;
+    margin: 0 15px 15px 15px;
+    flex-grow: 1; /* Позволяет параграфу занимать доступное пространство */
+}
+
+.news-card .article-meta {
+    font-size: 0.8em;
+    color: #777;
+    margin: 0 15px 10px 15px;
+}
+
+.news-card a {
+    display: block; /* Ссылка занимает всю ширину */
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-top: 1px solid #eee;
+    transition: background-color 0.2s ease;
+    margin-top: auto; /* Прикрепляет ссылку к низу карточки */
+}
+
+.news-card a:hover {
+    background-color: #0056b3;
+}
+
+/* --- Пагинация --- */
+.pagination-controls {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.pagination-controls a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #007bff;
+    background-color: #fff;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination-controls a:hover {
+    background-color: #e9e9e9;
+    color: #0056b3;
+}
+
+.pagination-controls a.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    cursor: default;
+}
+
+.pagination-controls a.active:hover {
+    background-color: #007bff; /* Остается синим */
+    color: #fff;
+}
+
+/* --- Футер --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/* --- Стили для страницы отдельной статьи (article.html) --- */
+/* Если у вас будет отдельная страница article.html, добавьте стили и для неё */
+.article-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+
+.article-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.article-content .article-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.article-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 1em;
 }
