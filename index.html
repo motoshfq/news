@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Новости</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <link rel="stylesheet" href="style.css"> </head>
 <body>
-  <main>
-    <section id="news-container"></section>
-    <div id="pagination">
-      <button id="prevBtn">← Назад</button>
-      <span id="page-info">1</span>
-      <button id="nextBtn">Вперёд →</button>
-    </div>
-  </main>
+    <header>
+        <h1>Последние новости</h1>
+        <select id="category-filter">
+            </select>
+    </header>
 
-  <script type="module" src="script/loader.js"></script>
+    <main>
+        <section id="news-list" class="news-grid">
+            </section>
+
+        <section id="pagination" class="pagination-controls">
+            </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ваша Система Новостей</p>
+    </footer>
+
+    <script type="module" src="script/main.js"></script>
 </body>
 </html>

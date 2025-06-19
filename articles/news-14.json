@@ -1,6 +1,9 @@
 {
-  "title": "Первая новость",
+  "id": "unikalny-identifikator-stati",
+  "title": "Заголовок статьи",
   "date": "2025-06-19",
-  "preview": "Это краткий анонс первой новости. Очень важная информация.",
-  "image": "https://placehold.co/300x200"
+  "category": "Технологии",
+  "image": "path/to/image.jpg",
+  "excerpt": "Краткое описание статьи для превью.",
+  "content": "Полное содержимое статьи в формате HTML или Markdown."
 }
